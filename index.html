@@ -1,0 +1,814 @@
+<!doctype html>
+
+<!--
+  This is a simple example / template impress.js slide show. The goal is to be
+  easier to read for a first timer than the official and very feature rich
+  demo by bartaz (http://bartaz.github.io/impress.js/). It's also a very
+  traditional presentation that looks like slides (square screens with bullet
+  points...), again to make a first timer feel more at home. From this simple
+  presentation you can then go on to more powerful impress.js presentations!
+
+  This example is hopefully helpful for people that want to create both
+  simple and (eventually) awesome presentations in impress.js and comfortable
+  doing that directly in HTML.
+
+  By: @henrikingo (Still based on the HTML from bartaz' demo.)
+
+-->
+
+<html lang="de">
+<head>
+    <meta charset="utf-8" />
+    <title> Termination Time of IDE Flows in Single Sink Networks</title>
+
+    <meta name="description" content=" Termination Time of IDE Flows in Single Sink Networks" />
+    <meta name="author" content="Lukas Graf" />
+
+
+	<link href="css/classic-slides-IPCO.css" rel="stylesheet" />
+	<link href="css/impress-custom-IPCO.css" rel="stylesheet" />
+
+	<script type="text/x-mathjax-config">
+	  MathJax.Hub.Config({
+		tex2jax: {
+		  inlineMath: [ ['$','$'], ['\\(','\\)'] ],
+		  processEscapes: true
+		},
+		"SVG": { fonts: ["TeX"], scale:85 }
+	  });
+	  MathJax.Hub.Queue(generateTeXinSVGs());
+	</script>
+	<!-- Internetquelle für MathJax -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_SVG-full"></script>
+	<!-- Falls kein Internet verfügbar... -->
+	<script type="text/javascript" src="extras/MathJax/MathJax.js?config=TeX-MML-AM_SVG-full"></script>
+
+</head>
+
+<!--
+
+    Body element is used by impress.js to set some useful class names, that will allow you to detect
+    the support and state of the presentation in CSS or other scripts.
+
+    First very useful class name is `impress-not-supported`. This class means, that browser doesn't
+    support features required by impress.js, so you should apply some fallback styles in your CSS.
+    It's not necessary to add it manually on this element. If the script detects that browser is not
+    good enough it will add this class, but keeping it in HTML means that users without JavaScript
+    will also get fallback styles.
+
+    When impress.js script detects that browser supports all required features, this class name will
+    be removed.
+
+    Another class name on body element also depends on currently active presentation step.
+-->
+<body class="impress-not-supported" style="transform:scale(1,1);">
+<!--
+    This fallback message is only visible when there is `impress-not-supported` class on body.
+-->
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+
+<!--
+    This is the core element used by impress.js: the wrapper for your presentation steps.
+    In this element all the impress.js magic happens.
+
+    data-transition-duration sets the time in microseconds that is used for the
+    animation when transtitioning between slides.
+
+    data-autoplay can be used to set the time in seconds, after which presentation
+    automatically moves to next slide. It can also be set individually for each
+    slide, but here we just set a common duration for all slides.
+-->
+
+<div style="display:none;">
+  \(
+    \newcommand{\IN}{\mathbb{N}}
+    \newcommand{\IZ}{\mathbb{Z}}
+    \newcommand{\IR}{\mathbb{R}}
+    \newcommand{\IC}{\mathbb{C}}
+    \newcommand{\A}{\mathcal{A}}
+    \newcommand{\B}{\mathcal{B}}
+    \newcommand{\U}{\mathfrak{U}}
+    \newcommand{\coloneqq}{:=}
+    \newcommand{\Set}[1]{\left\{#1\right\}}
+    \newcommand{\supp}{\mathrm{supp}}
+    \newcommand{\Re}{\mathrm{Re}}
+    \newcommand{\Im}{\mathrm{Im}}
+    \newcommand{\clos}[1]{\overline{#1}}
+    \newcommand{\inte}[1]{\mathring{#1}}
+	\newcommand{\dist}[2]{\mathrm{dist}^c_{#1}(#2)}
+	\newcommand{\dists}[2]{{\mathrm{dist}^c_{#1}}'(#2)}
+	\newcommand{\Ind}{\unicode{x1D7D9}}
+	\newcommand{\tPmax}{\tau(P_{\max})}
+	\newcommand{\tPmin}{\tau(P_{\min})}
+	\newcommand{\tG}{\tau(G)}
+	\newcommand{\Oc}{\mathcal{O}}
+	
+  \)
+</div>
+
+
+<div id="impress" data-transition-duration="2000" data-autoplay="0">
+
+
+	<div id="Title" class="step slide center" data-x="0" data-y="0" data-scale="1" data-tempstep-number="9">
+		<h1> Termination Time of IDE Flows<br />in Single Sink Networks</h1>
+			<strong>Lukas Graf</strong><sup>1</sup>, Tobias Harks<sup>1</sup>, Leon Sering<sup>2</sup> <br />
+			
+			<span style="font-size:70%;"><sup>1</sup> Augsburg University, <sup>2</sup> Technische Universität Berlin</span>
+						
+			<svg class="tempstep a" data-tempstep-from="2" width="800" height="500" style="display:block; position:relative; margin:auto;" viewbox="-130 0 950 550">
+				<defs>
+					<marker id='headSmall' orient='auto' markerWidth='8' markerHeight='8' refX='12' refY='4'>
+						<path d='M0,0 V8 L8,4 Z' fill='black' />
+					</marker>
+					<marker id='head' orient='auto' markerWidth='4' markerHeight='4' refX='4.5' refY='2'>
+						<path d='M0,0 V4 L4,2 Z' fill='black' />
+					</marker>
+					<marker id='headF' orient='auto' markerWidth='2' markerHeight='2' refX='.1' refY='1'>
+						<path d='M0,0 V2 L2,1 Z' fill='DodgerBlue' />
+					</marker>
+				</defs>    
+					
+				<!-- edges -->
+					<path marker-end='url(#head)' stroke-width='20' stroke='black'  d='M20,150 L400,150' />  
+					<path marker-end='url(#headSmall)' stroke-width='5' stroke='black'  d='M400,150 L780,150' />
+
+					<path class="tempstep a" data-tempstep-from="9" marker-end='url(#head)' stroke-width='20' stroke='black'  d='M20,150 L210,450' />
+					<path class="tempstep a" data-tempstep-from="9" marker-end='url(#head)' stroke-width='20' stroke='black'  d='M210,450 L590,450' />
+					<path class="tempstep a" data-tempstep-from="9" marker-end='url(#head)' stroke-width='20' stroke='black'  d='M590,450 L780,150' />
+					<path class="tempstep a" data-tempstep-from="9" marker-end='url(#head)' stroke-width='20' stroke='black'  d='M400,150 L210,450' />
+					
+				<!-- flow -->
+					
+					<path stroke-width='40' d='M50,150 L370,150' 
+						class="flow tempstep a" data-tempstep-classes="5-6:Te1s1;7:Te1s2" />
+					<path stroke-width='10' d='M430,150 L750,150' 
+						class="flow tempstep a" data-tempstep-classes="7:Te2s1;8:Te2s2" />
+						
+				<!-- queues -->
+				
+					<path stroke-width='80' stroke='blue' d='M470,140 V-100' 
+						class="flow tempstep a" data-tempstep-classes="7:Tq2s1;" />
+
+					
+				<!--vertices-->
+					<circle class="nodeBig" cx="20" cy="150" r="30" />
+					<svg class="TeXinSVG node-text" x="10" y="140"><text>s</text></svg>
+					
+					<circle class="nodeBig" cx="400" cy="150" r="30" />
+					<svg class="TeXinSVG node-text" x="390" y="140"><text>v</text></svg>
+					
+					<circle class="nodeBig" cx="780" cy="150" r="30" />
+					<svg class="TeXinSVG node-text" x="775" y="135"><text>t</text></svg>
+					
+					<circle class="nodeBig tempstep a" data-tempstep-from="9" cx="210" cy="450" r="30" />
+					
+					<circle class="nodeBig tempstep a" data-tempstep-from="9" cx="590" cy="450" r="30" />
+
+				<!-- Extras -->
+					<path class="tempstep a" data-tempstep-list="3-5" marker-end='url(#headF)' stroke-width='20' stroke='DodgerBlue'  d='M-100,150 L-30,150' />
+					<svg class="TeXinSVG node-text tempstep a" data-tempstep-list="3-5" x="-120" y="80" style="color:DodgerBlue;"><text>u|_{[0,1]} \equiv 4</text></svg>
+					<svg class="TeXinSVG node-text tempstep a" data-tempstep-from="4" x="120" y="80"><text>(\tau_{sv}, \nu_{sv})</text></svg>
+					<svg class="TeXinSVG node-text tempstep a" data-tempstep-from="6" x="540" y="80"><text>(\tau_{vt}, {\tiny\nu_{vt}})</text></svg>
+					<svg class="TeXinSVG node-text tempstep a" data-tempstep-list="7" x="440" y="-10" style="color:DodgerBlue;"><text>z_{vt}(\theta)</text></svg>
+			</svg>	
+	</div>
+	
+	<div id="Model" class="step slide" data-x="0" data-y="330" data-scale="1" data-tempstep-number="21">
+	
+		<svg class="tempstep a" data-tempstep-from="1" width="800" height="500" style="display:block; position:relative; top: -18px; margin:auto; z-index:-5;" viewbox="-130 0 950 550">
+				<defs>
+					<marker id='headSmall' orient='auto' markerWidth='8' markerHeight='8' refX='12' refY='4'>
+						<path d='M0,0 V8 L8,4 Z' fill='black' />
+					</marker>
+					<marker id='head' orient='auto' markerWidth='4' markerHeight='4' refX='4.5' refY='2'>
+						<path d='M0,0 V4 L4,2 Z' fill='black' />
+					</marker>
+				</defs>    
+					
+				<!-- edges -->
+					<path marker-end='url(#head)' stroke-width='20' stroke='black'  d='M20,150 L400,150' />  
+					<path marker-end='url(#headSmall)' stroke-width='5' stroke='black'  d='M400,150 L780,150' />
+
+					<path marker-end='url(#head)' stroke-width='20' stroke='black'  d='M20,150 L210,450' />
+					<path marker-end='url(#head)' stroke-width='20' stroke='black'  d='M210,450 L590,450' />
+					<path marker-end='url(#head)' stroke-width='20' stroke='black'  d='M590,450 L780,150' />
+					<path marker-end='url(#head)' stroke-width='20' stroke='black'  d='M400,150 L210,450' />
+					
+				<!-- flow -->
+					
+					<path stroke-width='40' d='M50,150 L370,150' 
+						class="flow tempstep a" data-tempstep-classes="2:NEQe1s1;3:NEQe1s2;4-100:NEQe1s3" />
+					<path stroke-width='10' d='M50,150 L370,150' 
+						class="flow tempstep a" data-tempstep-classes="3:NEQe1bs1;4-100:NEQe1bs2" />
+					<path stroke-width='10' d='M430,150 L750,150' 
+						class="flow tempstep a" data-tempstep-classes="4-5:NEQe2s1;6-100:NEQe2s2" />
+					<path stroke-width='30' d='M35,180 L210,450' 
+						class="flow tempstep a" data-tempstep-classes="3:NEQe3s1;4-100:NEQe3s2" />
+					<path stroke-width='30' d='M210,450 L590,450' 
+						class="flow tempstep a" data-tempstep-classes="4:NEQe4s1;5-100:NEQe4s2" />
+					<path stroke-width='30' d='M590,450 L780,150' 
+						class="flow tempstep a" data-tempstep-classes="5:NEQe4s1;6-100:NEQe4s2" />
+						
+					<path stroke-width='40' d='M50,150 L370,150' 
+						class="flow tempstep a" data-tempstep-classes="14:IDEe1s1;15:IDEe1s2;16-100:IDEe1s3" />
+					<path stroke-width='10' d='M430,150 L750,150' 
+						class="flow tempstep a" data-tempstep-classes="15:IDEe2s1;16-100:IDEe2s2" />
+					<path stroke-width='30' d='M400,150 L210,450' 
+						class="flow tempstep a" data-tempstep-classes="16-100:IDEe6s1" />
+						
+				<!-- queues -->
+				
+					<path stroke-width='80' stroke='blue' d='M470,140 V-65' 
+						class="flow tempstep a" data-tempstep-classes="4:NEQq2s1;15-100:IDEq2s1" />
+					
+				<!--vertices-->
+					<circle class="nodeBig" cx="20" cy="150" r="30" />
+					<svg class="TeXinSVG node-text" x="10" y="140"><text>s</text></svg>
+					
+					<circle class="nodeBig" cx="400" cy="150" r="30" />
+					<svg class="TeXinSVG node-text" x="390" y="140"><text>v</text></svg>
+					
+					<circle class="nodeBig" cx="780" cy="150" r="30" />
+					<svg class="TeXinSVG node-text" x="775" y="135"><text>t</text></svg>
+					
+					<circle class="nodeBig" cx="210" cy="450" r="30" />
+					
+					<circle class="nodeBig" cx="590" cy="450" r="30" />
+
+				<!-- Extras -->
+					<path class="tempstep a" data-tempstep-list="1-3;13-14" marker-end='url(#headF)' stroke-width='20' stroke='DodgerBlue'  d='M-100,150 L-30,150' />
+					<svg class="TeXinSVG node-text tempstep a" data-tempstep-list="1-3;13-14" x="-120" y="80" style="color:DodgerBlue;"><text>u|_{[0,1]} \equiv 4</text></svg>
+				
+			</svg>		
+	
+		<div style="position:absolute; top:430px; left:0px; width:35%; transition:left 2s, opacity 2s;" class="tempstep a" data-tempstep-list="1-17" data-tempstep-classes="17-20:toLeft">		
+			<h3>Nash Equilibrium</h3>
+		
+			<div class="tempstep a" data-tempstep-from="7">
+			Every flow particle
+			<ul style="margin-top:10px;">
+				<li>chooses <em>one</em> source-sink path,</li>
+				<li class="tempstep a" data-tempstep-from="8">such that it is a shortest path <em>in hindsight</em></li>
+				<li class="tempstep a" data-tempstep-from="9">i.e. takes into account <em>future</em> flow evolution</li>
+			</ul>
+			</div>
+		</div>
+		
+		<div style="position:absolute; top: 430px; right:0px; width:64%; transition:width 2s, opacity 2s;" class="tempstep a" data-tempstep-from="10" data-tempstep-classes="17-100:fullSize">		
+			<h3>Instantaneous Dynamic Equilibrium (IDE)</h3>
+		
+			<div class="tempstep a" data-tempstep-list="11-16">
+			Every flow particle
+			<ul style="margin-top:10px;">
+				<li>may change its route at every node</li>
+				<li class="tempstep a" data-tempstep-from="12">always chooses a shortest path <em>at the moment</em></li>
+				<li class="tempstep a" data-tempstep-from="13">i.e. only considers the <em>present</em> state of the network</li>				
+			</ul>
+			</div>
+		</div>
+				
+		<div style="position:absolute; width:100%; left:0px; top:550px;">
+			<div class="theoremstyle d tempstep a" data-tempstep-from="18">
+				The <em>current travel time</em> at time \(\theta\) on edge \(e\) is: $c_e(\theta) := \tau_e + z_e(\theta)/\nu_e$  
+			</div>
+			
+			<div class="theoremstyle d tempstep a" data-tempstep-from="19">
+				A flow is in <em>Instantaneous Dynamic Equilibrium (IDE)</em> if the following holds:
+				<p class="tempstep a" data-tempstep-from="20">Whenever flow enters an edge, this edge must lie on a currently shortest path towards the respective sink (w.r.t. \(c\)).</p>
+				<!--<div class="tempstep a" data-tempstep-from="20" style="margin-top:-100px;">\[f^+_{vw}(\theta) > 0 \implies \dist{v,t}{\theta} = c_{vw}(\theta) + \dist{w,t}{\theta}\]</div>-->
+				<p class="tempstep a theoremstyle" data-tempstep-from="21">(we call such an edge \(vw\) <em>active</em>)</p>
+				
+			</div>
+		</div>
+	
+	</div>
+		
+		
+	<div id="WhatIsKnown" class="step slide" data-x-rel="0" data-rel-y="1000" data-tempstep-number="17">
+		<h2>What is known about IDEs?</h2>
+		
+		<div style="float:left; width:60%;">
+		
+			<h4 class="tempstep a" data-tempstep-from="2">Existence <img class="tempstep a" data-tempstep-from="3" src="images/Yes.png" style="height:30px;" /></h4>
+			
+			<div class="tempstep a" data-tempstep-from="4">
+				Proof by iteratively extending given IDE flow up to some time $\theta_0$			
+				<ul style="margin-top:5px;">
+					<li class="tempstep a" data-tempstep-from="7">For the multi-source single-sink case: <br />(almost) constructive</li>
+					<li class="tempstep a" data-tempstep-from="8">For the multi-source multi-sink case: <br />non-constructive using variational inequality</li>
+				</ul>
+			</div>
+			
+			<h4 class="tempstep a" data-tempstep-from="9">Termination <img class="tempstep a" data-tempstep-from="13" src="images/No.png" style="height:30px;" /><span class="tempstep a" data-tempstep-from="15">/</span><img class="tempstep a" data-tempstep-from="15" src="images/Yes.png" style="height:30px;" /></h4>
+			
+			<ul style="margin-top:5px;">
+				<li class="tempstep a" data-tempstep-from="13">For one-source two-sink instances: <br /> Non-Termination possible</li>
+				<li class="tempstep a" data-tempstep-from="15">For multi-source single-sink instances: <br />Termination guaranteed <br />
+					<span class="tempstep a" data-tempstep-from="16">&nbsp; &nbsp; &rarr; but <strong>when?</strong></span></li>
+			</ul>			
+		</div>
+		
+		<div class="tempstep a" data-tempstep-from="4" style="float:right; width:39%; margin-top:60px;">
+			<svg width="480" height="250" style="display:block; position:relative; margin:auto;" viewbox="0 -30 480 220">
+				<marker id='headE' orient='auto' markerWidth='8' markerHeight='8' refX='15' refY='4'>
+					<path d='M0,0 V8 L8,4 Z' fill='black' />
+				</marker>
+				<marker id='headF' orient='auto' markerWidth='2' markerHeight='2' refX='.1' refY='1'>
+					<path d='M0,0 V2 L2,1 Z' fill='DodgerBlue' />
+				</marker>
+				
+				<path marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M50,20 L250,20' />
+				<path marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M250,20 L450,20' />
+				<path marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M250,20 L150,180' />
+				<path marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M50,20 L150,180' />
+				<path marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M150,180 L350,180' />
+				<path marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M350,180 L450,20' />
+				
+				<path stroke-width='30' d='M50,20 L250,20' class="flowStatic" />
+				<path class="flowStatic tempstep a" data-tempstep-from="5" marker-end='url(#headF)' stroke-width='20' d='M250,20 L300,20' />
+				<path class="flowStatic tempstep a" data-tempstep-from="5" marker-end='url(#headF)' stroke-width='10' d='M250,20 L219,70' />
+				<path class="flowStatic tempstep a" data-tempstep-from="6" marker-end='url(#headF)' stroke-width='20' d='M50,20 L81,70' />
+			
+				<circle class="node" cx="450" cy="20" r="20" />
+				<svg class="TeXinSVG node-text" x="445" y="10"><text>t</text></svg>
+						
+				<circle class="node" cx="250" cy="20" r="20" />
+				<circle class="node" cx="50" cy="20" r="20" />
+				<circle class="node" cx="150" cy="180" r="20" />
+				<circle class="node" cx="350" cy="180" r="20" />
+			</svg>
+		</div>
+		
+		<div class="tempstep a" data-tempstep-from="10" style="float:right; width:39%; margin-top:60px;">
+			<svg width="480" height="265" style="display:block; position:relative; margin:auto;" viewbox="0 -5 480 260">
+			
+			
+				<path class="tempstep a" data-tempstep-list="13-14" marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M140,20 L30,125' />
+				<path class="tempstep a" data-tempstep-list="13-14" marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M140,230 L30,125' />
+				<path marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M340,20 L450,125' />
+				<path marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M340,230 L450,125' />
+				<path stroke-dasharray="60 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 100" stroke-width='2' stroke='black'  d='M140,20 L340,20' />
+				<path stroke-dasharray="60 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 100" stroke-width='2' stroke='black'  d='M140,230 L340,230' />
+				<path marker-end='url(#headE)' stroke-width='2' stroke='black' fill="none" d='M140,20 Q220,125 140,230' />
+				<path marker-end='url(#headE)' stroke-width='2' stroke='black' fill="none" d='M140,230 Q60,125 140,20' />
+				<path class="tempstep a" data-tempstep-from="13" marker-end='url(#headE)' stroke-width='2' stroke='black' fill="none" d='M340,20 Q420,125 340,230' />
+				<path class="tempstep a" data-tempstep-from="13" marker-end='url(#headE)' stroke-width='2' stroke='black' fill="none" d='M340,230 Q260,125 340,20' />
+				
+			
+				<circle class="node" cx="450" cy="125" r="20" style="stroke:DodgerBlue;" />
+				<svg class="TeXinSVG node-text" x="442" y="115" style="color:DodgerBlue; font-size:80%;"><text>t_1</text></svg>
+				<circle class="node tempstep a" data-tempstep-list="13-14" cx="30" cy="125" r="20" style="stroke:mediumseagreen;" />
+				<svg class="TeXinSVG node-text tempstep a" data-tempstep-list="13-14" x="22" y="115" style="color:mediumseagreen; font-size:80%;"><text>t_2</text></svg>
+				
+				<circle class="node" cx="140" cy="20" r="20" />
+				<circle class="node" cx="140" cy="230" r="20" />
+				<circle class="node" cx="340" cy="20" r="20" />
+				<circle class="node" cx="340" cy="230" r="20" />
+				
+				<circle class="tempstep a" data-tempstep-until="14" data-tempstep-classes="11:bD1;12:bD2;14:bD3" fill="DodgerBlue" cx="140" cy="20" r="25" />
+				<circle class="tempstep a" data-tempstep-from="13" data-tempstep-until="14" data-tempstep-classes="14:bD3" fill="mediumseagreen" cx="340" cy="20" r="25" />
+			</svg>
+		</div>
+		
+		<p class="tempstep a" data-tempstep-from="17" style="clear:both;">
+			<strong>From now on:</strong> Only single-sink instances and all flow particles enter the network before time $\theta = 0$
+		</p>
+		
+	</div>
+	
+	<div id="UpperBoundAcyclic" class="step slide" data-x-rel="0" data-rel-y="1000" data-tempstep-number="11">
+		<h2>An Upper Bound for Acyclic Graphs</h2>
+		
+		<div class="theoremstyle l tempstep a" data-tempstep-from="3" >
+			Any feasible flow in an acyclic network $G$ terminates after at most $\tPmax + U,$<br />
+			where $\tPmax \coloneqq \max\Set{\sum_{e \in P}\tau_e | P \style{font-family:inherit;font-size:130%;}{\text{ a source-sink path}}}$ and $U \coloneqq$ total network inflow
+		</div>
+		
+		<div class="proofstyle tempstep a" data-tempstep-from="5" >
+			For any $k = \tPmax, \tPmax -1, \dots, 1, 0$ and any time $\theta$ define $F_{\leq k}(\theta)$ as:
+			<p style="text-align:center;" >The total volume of all flow particles with maximal distance at most $k$ to $t$ at time $\theta$</p>
+			<div class="theoremstyle c tempstep a" data-tempstep-from="6" >Then $F_{\leq k}(\theta) \geq \min\Set{U,\theta-(\tPmax-k)}$ <br />
+				<ul style="margin-top:5px;">
+					<li class="tempstep a" data-tempstep-from="7" >$k = \tPmax$: clear</li>
+					<li class="tempstep a" data-tempstep-from="8" >$k \to k-1$: w.l.o.g. $F_{\leq k}(\theta) = \min\Set{U,\theta-(\tPmax-k)}$<br />
+						<span class="tempstep a" data-tempstep-from="9">$\quad \implies$ flow arrives at rate $1$ at level $k$</span> <span class="tempstep a" data-tempstep-from="10">$\quad \implies$ no queues form at level $k$</span><br />
+						<span class="tempstep a" data-tempstep-from="11">$\quad \implies F_{\leq k-1}(\theta+1) = \min\Set{U,\theta-(\tPmax-k)}$</span></li>
+				</ul>
+			</div>
+		</div>
+		
+		<svg width="1000" height="250" style="display:block; position:relative; margin:auto;" viewbox="0 0 1000 250">
+				
+			<marker id='headE' orient='auto' markerWidth='8' markerHeight='8' refX='15' refY='4'>
+				<path d='M0,0 V8 L8,4 Z' fill='black' />
+			</marker>
+		
+				<g class="tempstep a" data-tempstep-from="4">
+					<svg class="TeXinSVG node-text" style="color:lightgrey;" x="50" y="200"><text>k=</text></svg>
+					<path stroke-width='3' stroke='lightgrey' stroke-dasharray='5' d='M150,0 V190' />
+					<svg class="TeXinSVG node-text" style="color:lightgrey;" x="140" y="200"><text>5</text></svg>
+					<path stroke-width='3' stroke='lightgrey' stroke-dasharray='5' d='M300,0 V190' />
+					<svg class="TeXinSVG node-text" style="color:lightgrey;" x="290" y="200"><text>4</text></svg>
+					<path stroke-width='3' stroke='lightgrey' stroke-dasharray='5' d='M450,0 V190' />
+					<svg class="TeXinSVG node-text" style="color:lightgrey;" x="440" y="200"><text>3</text></svg>
+					<path stroke-width='3' stroke='lightgrey' stroke-dasharray='5' d='M600,0 V190' />
+					<svg class="TeXinSVG node-text" style="color:lightgrey;" x="590" y="200"><text>2</text></svg>
+					<path stroke-width='3' stroke='lightgrey' stroke-dasharray='5' d='M750,0 V190' />
+					<svg class="TeXinSVG node-text" style="color:lightgrey;" x="740" y="200"><text>1</text></svg>
+					<path stroke-width='3' stroke='lightgrey' stroke-dasharray='5' d='M900,0 V190' />
+					<svg class="TeXinSVG node-text" style="color:lightgrey;" x="890" y="200"><text>0</text></svg>
+				</g>
+				
+				<path class="tempstep a" data-tempstep-from="2" stroke-width="8" stroke="salmon" fill="none" d="M150,100 L300,30 L450,100 L600,100 L750,160 L900,100" />
+				<svg class="TeXinSVG node-text tempstep a" data-tempstep-from="2" style="color:salmon;" x="500" y="40"><text>P_{\max}</text></svg>
+		
+			<!-- edges -->
+			
+				<path marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M750,30 L900,100' />  
+				<path marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M750,160 L900,100' />
+				<path marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M600,100 L900,100' />
+				<path marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M600,100 L750,160' />
+				<path marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M450,100 L600,100' />
+				<path marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M300,30 L450,100' />
+				<path marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M300,160 L450,100' />
+				<path marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M300,160 L750,160' />
+				<path marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M150,100 L300,30' />
+		
+			<!-- vertices -->
+				<circle class="node" cx="900" cy="100" r="20" />
+				<svg class="TeXinSVG node-text" x="895" y="90"><text>t</text></svg>
+				
+				<circle class="node" cx="750" cy="30" r="20" />
+				<circle class="node" cx="750" cy="160" r="20" />
+				<circle class="node" cx="600" cy="100" r="20" />
+				<circle class="node" cx="450" cy="100" r="20" />
+				<circle class="node" cx="300" cy="30" r="20" />
+				<circle class="node" cx="300" cy="160" r="20" />
+				<circle class="node" cx="150" cy="100" r="20" />
+		</svg>				
+	</div>
+	
+	<div id="Example" class="step slide" data-x-rel="0" data-rel-y="1000" data-tempstep-number="22">
+		<h2>A Worst-Case Instance</h2>
+		
+		<svg class="tempstep a" data-tempstep-from="3" data-tempstep-classes="20-100:smaller" width="1300" height="600" style="display:block; position:relative; transition:width 2s, height 2s;" viewbox="-30 0 1300 600">
+			<defs>
+				<marker id='headS' orient='auto' markerWidth='8' markerHeight='8' refX='12' refY='4'>
+					<path d='M0,0 V8 L8,4 Z' fill='black' />
+				</marker>
+				<marker id='headB' orient='auto' markerWidth='2' markerHeight='2' refX='2' refY='1'>
+					<path d='M0,0 V2 L2,1 Z' fill='black' />
+				</marker>
+				
+				<clipPath id="cut-off-top">
+				  <rect x="30" y="100" width="1000" height="200" />
+				</clipPath>
+			</defs>    
+				
+			<!-- edges -->
+				<path marker-end='url(#headB)' stroke-width='20' stroke='black'  d='M30,100 L230,100' class="tempstep a" data-tempstep-from="10" />  
+				<path marker-end='url(#headB)' stroke-width='20' stroke='black'  d='M230,100 L430,100' class="tempstep a" data-tempstep-from="10" />  
+				<path marker-end='url(#headB)' stroke-width='20' stroke='black'  d='M430,100 L630,100' class="tempstep a" data-tempstep-from="10" />  
+				<path marker-end='url(#headB)' stroke-width='20' stroke='black' fill='none'  d='M630,100 Q 930 0, 1230 100'  class="tempstep a" data-tempstep-list="17-19" />  
+				
+			
+				<path marker-end='url(#headS)' stroke-width='2' stroke='black'  d='M30,100 L230,300' />  
+				<path marker-end='url(#headS)' stroke-width='2' stroke='black'  d='M230,100 L230,300' class="tempstep a" data-tempstep-from="10" />  
+				<path marker-end='url(#headS)' stroke-width='2' stroke='black'  d='M430,100 L230,300' class="tempstep a" data-tempstep-from="10" />  
+				<path marker-end='url(#headS)' stroke-width='2' stroke='black'  d='M630,100 L230,300'  class="tempstep a" data-tempstep-list="10-19"/>  
+				<path marker-end='url(#headS)' stroke-width='2' stroke='black'  d='M1230,100 L230,500' class="tempstep a" data-tempstep-list="17-19" /> 
+				<path marker-end='url(#headS)' stroke-width='2' stroke='black'  d='M230,300 L230,500' class="tempstep a" data-tempstep-from="17" /> 
+				
+			<!-- flow -->
+			
+				<g class="tempstep a" data-tempstep-until="19">
+			
+				<path stroke-width='4' d='M30,100 L230,300' 
+						class="flow tempstep" data-tempstep-classes="4-5:Ee1s1;6:Ee1s2;7:Ee1s3;11:Ee1s4;12:Ee1s5;13-100:Ee1s6" />
+						
+				<path stroke-width='40' d='M30,100 L630,100' 
+						class="flow tempstep" data-tempstep-classes="12:Ee2s5;13-100:Ee2s6" />
+						
+				<path stroke-width='4' d='M230,0 L230,300' clip-path='url(#cut-off-top)'
+						class="flow tempstep" data-tempstep-classes="11-12:Ee3s5;13-100:Ee3s6" />
+						
+				<path stroke-width='4' d='M530,0 L230,300' clip-path='url(#cut-off-top)'
+						class="flow tempstep" data-tempstep-classes="11-12:Ee4s5;13-100:Ee4s6" />
+						
+				<path stroke-width='4' d='M230,300 L230,500'
+						class="flowStatic tempstep a" data-tempstep-from="17" />
+				
+					
+			<!-- queues -->
+			
+				<path stroke-width='30' stroke='blue' d='M55,135 L-20,210' 
+						class="flow tempstep a" data-tempstep-classes="4-5:Eq1s1;6:Eq1s2;7:Eq1s3;11-12:Eq1s4;13-100:Eq1s6" />
+				<svg class="TeXinSVG node-text tempstep a" data-tempstep-list="5-6" x="-10" y="230" style="color:DodgerBlue; font-size:85%;"><text>z(\theta) \approx U</text></svg>
+				<path stroke-width='30' stroke='blue' d='M215,140 h-20' 
+						class="flow tempstep a" data-tempstep-classes="13-100:Equeue1" />
+						
+				<path stroke-width='30' stroke='blue' d='M410,140 l15,15' 
+						class="flow tempstep a" data-tempstep-classes="13-100:Equeue2" />
+						
+				<path stroke-width='30' stroke='blue' d='M215,340 h-60' 
+						class="flowStatic tempstep a" data-tempstep-from="17" />
+				</g>
+
+				
+			<!--vertices-->
+				<circle class="node" cx="30" cy="100" r="20" />
+				<svg class="TeXinSVG node-text" x="20" y="90"><text>s</text></svg>
+				
+				<circle class="node" cx="230" cy="300" r="20" />
+				<svg class="TeXinSVG node-text tempstep a" data-tempstep-until="16" x="225" y="290"><text>t</text></svg>
+								
+				<circle class="node tempstep a" data-tempstep-from="10" cx="230" cy="100" r="20" />			
+				<circle class="node tempstep a" data-tempstep-from="10" cx="430" cy="100" r="20" />			
+				<circle class="node tempstep a" data-tempstep-from="10" cx="630" cy="100" r="20" />			
+				<circle class="node tempstep a" data-tempstep-list="17-18" cx="1230" cy="100" r="20" />			
+				
+				<circle class="node tempstep a" data-tempstep-from="17" cx="230" cy="500" r="20" />
+				<svg class="TeXinSVG node-text tempstep a" data-tempstep-list="17-19" x="225" y="490"><text>t</text></svg>
+				
+		</svg>
+		
+		<div class="tempstep a" data-tempstep-from="7" style="position:absolute; left:0px; top:730px;">Current Termination-time: 
+			<div style="position:absolute; top:0px; left:350px;" class="tempstep a" data-tempstep-list="8">$\approx \tPmax + U$</div>
+			<div style="position:absolute; top:0px; left:350px;" class="tempstep a" data-tempstep-list="9-13">$\approx \tPmin + U$</div>
+			<div style="position:absolute; top:0px; left:350px;" class="tempstep a" data-tempstep-list="14">$\approx \tPmax + U - ?$</div>
+			<div style="position:absolute; top:0px; left:350px;" class="tempstep a" data-tempstep-list="15">$\approx \tPmax + U - (\tPmax-\tPmin)$</div>
+			<div style="position:absolute; top:0px; left:350px;" class="tempstep a" data-tempstep-list="16-17">$\approx \tPmin + U$</div>
+			<div style="position:absolute; top:0px; left:350px;" class="tempstep a" data-tempstep-list="18">$\approx \tPmin + U + \frac{1}{2}(\tPmax-\tPmin)$</div>
+			<div style="position:absolute; top:0px; left:350px;" class="tempstep a" data-tempstep-list="19-21">$\approx \tPmax + U$</div>
+			
+			<div style="position:absolute; top:0px; left:350px;" class="tempstep a" data-tempstep-list="22">$\approx \ln(\tPmax) \cdot U$</div>
+		</div>
+		
+		<div style="margin-top:50px; position:absolute; left:0px; top:750px;" class="tempstep a" data-tempstep-from="2"><strong>Goal:</strong> Termination-time: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $\tPmax + U$ </div>
+		
+		<svg class="tempstep a" data-tempstep-from="21" width="750" height="300" style="display:block; position:absolute; top:126; left: 250px;" viewbox="-30 0 1300 600">
+			<defs>
+				<marker id='headS' orient='auto' markerWidth='8' markerHeight='8' refX='12' refY='4'>
+					<path d='M0,0 V8 L8,4 Z' fill='black' />
+				</marker>
+				<marker id='headB' orient='auto' markerWidth='2' markerHeight='2' refX='2' refY='1'>
+					<path d='M0,0 V2 L2,1 Z' fill='black' />
+				</marker>
+				
+				<clipPath id="cut-off-top">
+				  <rect x="30" y="100" width="1000" height="200" />
+				</clipPath>
+			</defs>    
+				
+			<!-- edges -->
+				<path marker-end='url(#headB)' stroke-width='20' stroke='black'  d='M30,100 L230,100' class="tempstep a" data-tempstep-from="10" />  
+				<path marker-end='url(#headB)' stroke-width='20' stroke='black'  d='M230,100 L430,100' class="tempstep a" data-tempstep-from="10" />  
+				<path marker-end='url(#headB)' stroke-width='20' stroke='black'  d='M430,100 L630,100' class="tempstep a" data-tempstep-from="10" />  
+				
+			
+				<path marker-end='url(#headS)' stroke-width='2' stroke='black'  d='M30,100 L230,300' />  
+				<path marker-end='url(#headS)' stroke-width='2' stroke='black'  d='M230,100 L230,300' class="tempstep a" data-tempstep-from="10" />  
+				<path marker-end='url(#headS)' stroke-width='2' stroke='black'  d='M430,100 L230,300' class="tempstep a" data-tempstep-from="10" />  
+				<path marker-end='url(#headS)' stroke-width='2' stroke='black'  d='M230,300 L230,500' class="tempstep a" data-tempstep-from="17" /> 
+				
+			<!--vertices-->
+				<circle class="node" cx="30" cy="100" r="20" />
+				
+				<circle class="node" cx="230" cy="300" r="20" />
+								
+				<circle class="node tempstep a" data-tempstep-from="10" cx="230" cy="100" r="20" />			
+				<circle class="node tempstep a" data-tempstep-from="10" cx="430" cy="100" r="20" />			
+				<circle class="node tempstep a" data-tempstep-from="10" cx="630" cy="100" r="20" />			
+				
+				<circle class="node tempstep a" data-tempstep-from="17" cx="230" cy="500" r="20" />
+				<svg class="TeXinSVG node-text tempstep a" data-tempstep-list="17-19" x="225" y="490"><text>t</text></svg>
+				
+		</svg>
+
+		<svg class="tempstep a" data-tempstep-from="21" width="750" height="300" style="display:block; position:absolute; top:126; left: 550px;" viewbox="-30 0 1300 600">
+			<defs>
+				<marker id='headS' orient='auto' markerWidth='8' markerHeight='8' refX='12' refY='4'>
+					<path d='M0,0 V8 L8,4 Z' fill='black' />
+				</marker>
+				<marker id='headB' orient='auto' markerWidth='2' markerHeight='2' refX='2' refY='1'>
+					<path d='M0,0 V2 L2,1 Z' fill='black' />
+				</marker>
+				
+				<clipPath id="cut-off-top">
+				  <rect x="30" y="100" width="1000" height="200" />
+				</clipPath>
+			</defs>    
+				
+			<!-- edges -->
+				<path marker-end='url(#headB)' stroke-width='20' stroke='black'  d='M30,100 L230,100' class="tempstep a" data-tempstep-from="10" />  
+				<path marker-end='url(#headB)' stroke-width='20' stroke='black'  d='M230,100 L430,100' class="tempstep a" data-tempstep-from="10" />  
+				<path marker-end='url(#headB)' stroke-width='20' stroke='black'  d='M430,100 L630,100' class="tempstep a" data-tempstep-from="10" />  
+				<path marker-end='url(#headB)' stroke-width='20' stroke='black' fill='none'  d='M630,100 Q 930 0, 1230 100'  class="tempstep a" />  
+
+			
+				<path marker-end='url(#headS)' stroke-width='2' stroke='black'  d='M30,100 L230,300' />  
+				<path marker-end='url(#headS)' stroke-width='2' stroke='black'  d='M230,100 L230,300' class="tempstep a" data-tempstep-from="10" />  
+				<path marker-end='url(#headS)' stroke-width='2' stroke='black'  d='M430,100 L230,300' class="tempstep a" data-tempstep-from="10" />  
+				<path marker-end='url(#headS)' stroke-width='2' stroke='black'  d='M230,300 L230,500' class="tempstep a" data-tempstep-from="17" /> 
+				
+
+				
+			<!--vertices-->
+				<circle class="node" cx="30" cy="100" r="20" />
+				
+				<circle class="node" cx="230" cy="300" r="20" />
+								
+				<circle class="node tempstep a" data-tempstep-from="10" cx="230" cy="100" r="20" />			
+				<circle class="node tempstep a" data-tempstep-from="10" cx="430" cy="100" r="20" />			
+				<circle class="node tempstep a" data-tempstep-from="10" cx="630" cy="100" r="20" />			
+				<circle class="node tempstep a" data-tempstep-from="10" cx="1230" cy="100" r="20" />			
+
+				
+				<circle class="node tempstep a" data-tempstep-from="17" cx="230" cy="500" r="20" />
+				<svg class="TeXinSVG node-text tempstep a" data-tempstep-list="17-19" x="225" y="490"><text>t</text></svg>
+				
+		</svg>
+
+		
+	</div>
+	
+	<div id="UpperBoundGeneral" class="step slide" data-x-rel="0" data-rel-y="1000" data-tempstep-number="14">
+		<h2>A General Upper Bound</h2>
+		
+		<div class="theoremstyle t tempstep a" data-tempstep-from="2">
+			Any IDE flow in a single-sink network $G$ terminates in $\Oc(U \cdot \tG),$	where $\tG \coloneqq \sum_{e \in E}\tau_e$.
+		</div>
+		
+		<div class="proofstyle tempstep" data-tempstep-classes="0-2:noProof">
+			<ul>
+				<li class="tempstep a" data-tempstep-from="3">In an acyclic network termination is guaranteed (within $\tG + U$)</li>
+				<li class="tempstep a" data-tempstep-from="4">If the total flow volume is $\lt 1$, only physically shortest paths can be active</li>
+			</ul>
+			<div class="theoremstyle d tempstep a" data-tempstep-from="5">
+				A subgraph $T \subseteq G$ is called <em>sink-like</em> for some intervall $[a,b]$ if
+				<ul style="margin-top:5px;">
+					<li class="tempstep a" data-tempstep-from="6">it contains all (physically) shortest $w$-$t$ paths for $w \in T$</li>
+					<li class="tempstep a" data-tempstep-from="7">total flow volume in $T$ at time $a$ $+$ total inflow into $T$ over $[a,b]$ is bounded by $\frac{1}{2}$</li>
+				</ul>
+			</div>
+			
+			<div style="width:50%; float:right;">
+				<svg width="550" height="300" viewbox="0 0 550 300">
+					<path marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M350,50 L480,50' />
+					<path marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M480,170 L480,50' />
+					<path marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M480,170 L330,170' />
+					<path marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M330,170 L350,50' />
+					<path marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M200,50 L350,50' />
+					<path marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M330,170 L200,50' />
+					<path marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M200,50 L100,130' />
+					<path marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M100,130 L200,230' />
+					<path marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M200,230 L330,170' />
+					<path marker-end='url(#headE)' stroke-width='2' stroke='black'  d='M30,260 L100,130' />
+					
+	
+				
+					<circle class="node" cx="480" cy="50" r="20" />
+					<svg class="TeXinSVG node-text" x="475" y="40"><text>t</text></svg>							
+					<circle class="node" cx="350" cy="50" r="20" />
+					<circle class="node" cx="480" cy="170" r="20" />
+					<circle class="node tempstep" data-tempstep-classes="9-100:redNode" cx="330" cy="170" r="20" />
+					<svg class="TeXinSVG node-text tempstep a" data-tempstep-from="9" x="325" y="160" style="color:red;"><text>v</text></svg>
+					<circle class="node" cx="200" cy="230" r="20" />
+					<circle class="node" cx="100" cy="130" r="20" />
+					<circle class="node" cx="200" cy="50" r="20" />
+					<circle class="node" cx="30" cy="260" r="20" />
+					
+					<path class="tempstep a" data-tempstep-list="5-10" stroke-width="4" stroke="salmon" stroke-dasharray="5" fill="none" d="M330,10 L500,10 a20,20 0 0 1 20,20 L520,190, a20,20 0 0 1 -20,20 L450,210 a20,20 0 0 1 -10,-7 L320,80 a20,20 0 0 1 -7,-10 L313,30 a20,20 0 0 1 20,-20" />
+					<svg class="TeXinSVG node-text tempstep a" data-tempstep-from="5" x="400" y="240" style="color:salmon;"><text>T</text></svg>
+					
+					<path class="tempstep a" data-tempstep-from="11" stroke-width="4" stroke="salmon" stroke-dasharray="5" fill="none" d="M300,10 L500,10 a20,20 0 0 1 20,20 L520,190, a20,20 0 0 1 -20,20 L300,210 a20,20 0 0 1 -20,-20 L280,30 a20,20 0 0 1 20,-20 Z" />
+
+				</svg>
+			</div>	
+			
+			<div class="theoremstyle l tempstep a" data-tempstep-from="8" style="width:40%; float:left;">
+				Let $T \subsetneq G$ be sink-like for $[a,b]$,
+				<p class="tempstep a" data-tempstep-from="9">${\color{red}v} \in G\setminus T$ the closest node to $t$</p>
+				<p class="tempstep a" data-tempstep-from="10">and	$b' \coloneqq b - 2\sum_{e \in \delta(v,T)}\tau_e \geq a$</p>
+				<p class="tempstep a" data-tempstep-from="11">Then $T \cup \Set{v}$ is sink-like for $[a,b']$</p>
+			</div>
+			
+			<div class="theoremstyle o tempstep a" data-tempstep-from="12" style="width:40%; float:left;">
+				If $T = G$ is sink-like, the IDE flow terminates within $\tG$</li>
+			</div>	
+			
+			<p class="tempstep a" data-tempstep-from="13" style="clear:both;">
+				$\implies t$ has an inflow of $\geq \frac{1}{2}$ for every intervall $[a, a + 2\sum_{e \in E}\tau_e]$. <span class="tempstep a" data-tempstep-from="14">Otherwise the flow terminates.</span>
+			</p>
+		</div>
+	</div>
+	
+	<div id="Overview" class="step slide" data-x-rel="0" data-rel-y="1000" data-tempstep-number="15">
+		<h2>Conclusion</h2>
+		
+		<div class="tempstep a" data-tempstep-from="2">
+			The termination time of an IDE flow can be
+			<table class="ConcTable">
+				<tr>
+					<td></td>
+					<td>at least:</td>
+					<td>at most:</td>
+				</tr>
+				<tr>
+					<td class="tempstep a" data-tempstep-from="3">for acyclic graphs</td>
+					<td class="tempstep a" data-tempstep-from="4">$\tPmax + U$</td>
+					<td class="tempstep a" data-tempstep-from="5">$\tPmax + U$</td>
+				</tr>
+				<tr>
+					<td class="tempstep a" data-tempstep-from="6">for general graphs</td>
+					<td class="tempstep a" data-tempstep-from="7">$\Omega(U \cdot \ln\tG)$</td>
+					<td class="tempstep a" data-tempstep-from="8">$\Oc(U \cdot \tG)$</td>
+				</tr>
+			</table>
+		</div>
+		
+		<h3 class="tempstep a" data-tempstep-from="9">Open Questions</h3>
+		
+		<ul>
+			<li class="tempstep a" data-tempstep-from="10"><svg width="1000" height="230" style="display:block; position:absolute; top:350px;" viewbox="0 -30 1000 200">
+				<marker id='headR' orient='auto' markerWidth='8' markerHeight='8' refX='.1' refY='4'>
+					<path d='M0,0 V8 L8,4 Z' fill='salmon' />
+				</marker>
+				<path marker-end='url(#headR)' stroke-width='4' stroke='salmon' fill="none" d='M0,160 H600 Q790,160 790,40' />
+				<svg class="TeXinSVG node-text" x="775" y="-30" style="color:salmon;"><text>\lt</text></svg>
+			</svg></li>
+			<li class="tempstep a" data-tempstep-from="11">How do the termination times of IDEs compare to those of Nash Flows?</li>
+			<li class="tempstep a" data-tempstep-from="12">...?</li>		
+		</ul>
+		
+	</div>
+
+</div>
+
+
+<div id="Heading">
+	<span style="float:left;"> Termination Time of IDE Flows in Single Sink Networks</span>
+	<span style="float:right;">Lukas Graf</span>
+</div>
+
+
+<div id="impress-toolbar"></div>
+<div class="impress-progress"></div>
+
+
+<!--
+    To make all described above really work, you need to include impress.js in the page.
+    You also need to call a `impress().init()` function to initialize impress.js presentation.
+    And you should do it in the end of your document.
+-->
+<script type="text/javascript" src="js/impress.js"></script>
+<script type="text/javascript" src="js/impress-custom.js"></script>
+
+<script>impress().init();</script>
+
+
+<script type="text/javascript">
+		// SOURCE: https://stackoverflow.com/a/52011013
+		// Define a function that takes LaTeX source code
+		// and places the resulting generated SVG in a target SVG element.
+		mathSVG = function (latex, target) {
+		  // First create a new element to hold the initial Latex code
+		  // and eventual MathJax generated SVG. This element isn't added
+		  // to the main document, so it's never seen.
+		  let mathBuffer = document.createElement("div");
+		
+		  // Update the buffer with the source latex.
+		  mathBuffer.textContent = latex;
+		  // Get MathJax to process and typeset.
+		  MathJax.Hub.Queue(["Typeset", MathJax.Hub, mathBuffer]);
+		  // Queue a callback function that will execute once it's finished typesetting.
+		  MathJax.Hub.Queue(function () {
+			// This (svg) is the generated graphics.
+			var svg = mathBuffer.childNodes[1].childNodes[0];
+			// The next line is optional, play with positioning as you see fit.
+			svg.setAttribute("y", "0pt");
+			// Move the generated svg from the buffer to the target element.
+			target.appendChild(svg);
+			// Clear the buffer.
+			mathBuffer.textContent = "";
+		  });
+		};
+		
+		function generateTeXinSVGs() {
+			listOfSVGs = document.getElementsByClassName("TeXinSVG");
+			var i;
+			for (i = 0; i < listOfSVGs.length; i++) {
+				svgElement = listOfSVGs[i];
+				latex = svgElement.children[0].textContent;
+				svgElement.innerHTML = "";
+				mathSVG("$" + latex + "$", svgElement);				
+			} 
+		};
+</script>
+
+</body>
+</html>

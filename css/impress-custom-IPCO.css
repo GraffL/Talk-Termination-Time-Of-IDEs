@@ -1,0 +1,400 @@
+body {transform:scale(1,1);}
+
+.slide {width:1300px; height:900px;}
+
+h1 {font-size:200%;}
+h2 {font-size:180%;}
+h3 {font-size:150%;}
+h4 {font-size:140%; margin-top:10px; margin-bottom:0px;}
+
+.center{
+	text-align: center;
+}
+
+
+.ConcTable {border-collapse: collapse;border-style: hidden; margin:auto;}
+
+.ConcTable td {text-align:center;border:3px solid rgb(162, 162, 162); padding:20px 60px;}
+
+
+/* Tempstep */
+
+.tempstep {transition:opacity 2s, width 2s, background 2s;}
+.tempstep.a {opacity:0;}
+.tempstep-active {opacity:1 !important;}
+
+
+.tempClass-striken {
+	text-decoration:line-through;
+}
+.tempClass-red {
+	color:red;
+}
+
+.flyin {transform:translateY(-400px); transition:transform 4s; font-size:80%; text-align:center;}
+.tempClass-flyin {transform:translateY(0px);}
+
+
+
+
+.tempClass-toLeft {left:-600px !important;}
+
+.tempClass-fullSize {width:100% !important;}
+
+
+
+
+
+
+
+
+
+#Heading {position:fixed; top:-50px; left:3%; width:94%; font-size:120%; border-bottom:2px solid #999999; padding-top:80px;
+			opacity:1; transition: opacity 4s 2s; z-index:500; background-color:white;
+			text-shadow: 0 2px 2px rgba(0, 0, 0, .1); font-family: 'Open Sans', Arial, sans-serif; font-size: 22px; letter-spacing: -1px;}
+			
+.impress-on-Title #Heading {opacity:0;}			
+
+
+
+/* Theoremstyles */
+
+.theoremstyle {
+	margin-left:3em;
+	margin-bottom:1em;
+}
+
+.theoremstyle::before {
+	font-variant:small-caps;
+	font-weight:bold;
+	color:#808080;
+	text-shadow: 1px 1px 4px rgba(170,170,170,0.9);
+	display:block;
+	float:left;
+	margin-left:-3em;
+}
+
+.theoremstyle.t::before {content:"Thm.:";}
+.theoremstyle.l::before {content:"Lem.:";}
+.theoremstyle.d::before {content:"Def.:";}
+.theoremstyle.c::before {content:"Claim:";}
+.theoremstyle.o::before {content:"Obs.:";}
+
+
+
+
+.proofstyle {
+	margin-left:3em;
+	margin-bottom:1em;
+}
+
+.proofstyle::before {
+	font-variant:small-caps;
+	font-weight:bold;
+	color:#808080;
+	text-shadow: 1px 1px 4px rgba(170,170,170,0.9);
+	display:block;
+	float:left;
+	margin-left:-3em;
+	content:"Proof:";
+}
+
+/*.proofstyle::after {
+	position:absolute;
+	right:20px;
+	bottom:-5px;
+	font-size:35px;
+	content:"□";
+}*/
+
+.proofstyle.t::before {content:"Proof of Thm:";}
+
+.proofstyle.i::before {content:"Idea:";}
+
+
+.theoremstyletop::before {
+	font-variant:small-caps;
+	font-weight:bold;
+	color:#808080;
+	text-shadow: 1px 1px 4px rgba(170,170,170,0.9);
+	display:block;
+}
+
+.theoremstyletop.s::before {content:"Satz:";}
+.theoremstyletop.l::before {content:"Lemma:";}
+.theoremstyletop.d::before {content:"Definition:";}
+
+
+/* Pictures */
+
+.node {
+	stroke: black;
+	stroke-width:2px;
+	fill:white;
+	
+}
+
+.nodeBig {
+	stroke: black;
+	stroke-width:3px;
+	fill:white;	
+}
+	
+.node-text {
+	color:black;
+}
+
+.flowStatic {
+	stroke:DodgerBlue;
+}
+.flow {
+	stroke:DodgerBlue;
+	transition:stroke-dasharray 4s;
+	stroke-dasharray:0,0,0,1000;
+	transition-timing-function: linear;
+}
+
+/* Flow on Title */
+
+.tempClass-Te1s1 
+	{
+		stroke-dasharray:0,0,380,1000;
+	}
+.tempClass-Te1s2 
+	{
+		stroke-dasharray:0,380,0,1000;
+	}
+	
+.tempClass-Te2s1 
+	{
+		stroke-dasharray:0,0,380,1000;
+	}
+.tempClass-Te2s2 
+	{
+		stroke-dasharray:0,380,0,1000;
+		transition-delay:4s;
+	}
+.tempClass-Tq2s1 
+	{
+		stroke-dasharray:0,0,100,1000;
+	}	
+	
+/* Flow on Models */
+
+.tempClass-NEQe1s1 {
+	stroke-dasharray:0,0,200,1000;
+	transition-duration:2.33s;
+}
+.tempClass-NEQe1s2 {
+	stroke-dasharray:0,120,200,1000;
+	transition-duration:1.67s;
+}
+.tempClass-NEQe1s3 {
+	stroke-dasharray:0,500,200,1000;
+}
+.tempClass-NEQe1bs1 {
+	stroke-dasharray:0,0,120,1000;
+	transition-duration:1.67s;
+}
+.tempClass-NEQe1bs2 {
+	stroke-dasharray:0,380,120,1000;
+}
+.tempClass-NEQe3s1 {
+	stroke-dasharray:0,0,120,1000;
+	transition-duration:1.67s;
+}
+.tempClass-NEQe3s2 {
+	stroke-dasharray:0,380,120,1000;
+}
+.tempClass-NEQe2s1 {
+		stroke-dasharray:0,0,380,1000;
+}
+.tempClass-NEQq2s1 {
+	transition-duration:2.33s;
+	stroke-dasharray:0,0,66,1000;
+}
+.tempClass-NEQe2s2 {
+	stroke-dasharray:0,380,0,1000;
+}	
+.tempClass-NEQe4s1 {
+	stroke-dasharray:0,0,120,1000;
+	transition-duration:1.67s;
+	transition-delay:2.33s;
+}
+.tempClass-NEQe4s2 {
+	stroke-dasharray:0,380,120,1000;
+}
+
+.tempClass-IDEe1s1 {
+	stroke-dasharray:0,0,380,1000;
+}
+.tempClass-IDEe1s2 {
+	transition-duration:3s;
+	stroke-dasharray:0,260,100,1000;
+}
+.tempClass-IDEe1s3 {
+	transition-duration:1s;
+	stroke-dasharray:0,380,0,1000;
+}
+.tempClass-IDEe2s1 {
+	transition-duration:3s;
+	stroke-dasharray:0,0,260,1000;
+}
+.tempClass-IDEe2s2 {
+	transition-duration:1s;
+	stroke-dasharray:0,0,380,1000;
+}
+.tempClass-IDEq2s1 {
+	transition-duration:3s;
+	stroke-dasharray:0,0,80,1000;
+}
+.tempClass-IDEe6s1 {
+	transition-duration:1s;
+	stroke-dasharray:0,0,80,1000;
+}
+
+
+/* Animation on What's Known */
+
+@keyframes bD1 {
+  0%   {transform:translate(0,0);}
+  50%  {transform:translate(40px,105px);}
+  100% {transform:translate(0,210px);}
+}
+.tempClass-bD1 {
+  animation-name: bD1;
+  animation-duration: 4s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+@keyframes bD2 {
+  0%   {transform:translate(0,210px);}
+  50%  {transform:translate(-40px,105px);}
+  100% {transform:translate(0,0);}
+}
+.tempClass-bD2 {
+  animation-name: bD2;
+  animation-duration: 4s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-fill-mode: both;
+}
+@keyframes bD3 {
+  0%   {transform:translate(0,0);}
+  15%  {transform:translate(40px,105px);}
+  30%  {transform:translate(0,210px);}
+  50%  {transform:translate(0,210px);}
+  65%  {transform:translate(-40px,105px);}
+  80% {transform:translate(0,0);}
+}
+
+.tempClass-bD3 {
+  animation-name: bD3;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+	
+	
+/* Flow on Example */
+
+.tempClass-Ee1s1 {
+	stroke-dasharray:0,0,100,1000;
+	transition-duration:2s;
+}
+.tempClass-Eq1s1 {
+	stroke-dasharray:0,0,115,1000;
+	transition-duration:2s;
+}
+.tempClass-Ee1s2 {
+	stroke-dasharray:0,0,270,1000;
+}
+.tempClass-Eq1s2 {
+	stroke-dasharray:0,0,90,1000;
+}
+.tempClass-Ee1s3 {
+	stroke-dasharray:0,270,0,1000;
+	transition-delay:4s;
+}
+
+.tempClass-Ee1s4 {
+	stroke-dasharray:0,0,60,1000;
+	transition-duration:.5s;
+}
+.tempClass-Eq1s4 {
+	stroke-dasharray:0,0,20,1000;
+	transition-duration:.5s;
+}
+.tempClass-Eq1s6 {
+	stroke-dasharray:0,0,0,1000;
+	transition-duration:1s;
+}
+.tempClass-Ee1s5 {
+	stroke-dasharray:0,0,180,1000;
+	transition-duration:1.5s;
+}
+.tempClass-Ee1s6 {
+	stroke-dasharray:0,300,180,1000;
+	transition-delay:1s;
+	transition-duration:5s;
+}
+.tempClass-Ee2s5 {
+	stroke-dasharray:0,0,100,1000;
+	transition-duration:1.5s;
+}
+.tempClass-Ee2s6 {
+	stroke-dasharray:0,500,100,1000;
+	transition-duration:7.5s;
+}
+.tempClass-Ee3s5 {
+	stroke-dasharray:0,0,100,1000;
+}
+.tempClass-Ee3s6 {
+	stroke-dasharray:0,300,150,1000;
+	transition-duration:6.5s;
+	transition-delay:1s;
+}
+.tempClass-Ee4s5 {
+	stroke-dasharray:0,0,150,1000;
+}
+.tempClass-Ee4s6 {
+	stroke-dasharray:0,200,350,1000;
+	transition-duration:3s;
+	transition-delay:4s;
+}
+
+@keyframes Equeue {
+  0%   {stroke-dasharray:0,1000;}
+  25%  {stroke-dasharray:20,1000;}
+  50%  {stroke-dasharray:20,1000;}
+  100%   {stroke-dasharray:0,1000;}
+}
+.tempClass-Equeue1 {
+  animation-name: Equeue;
+  animation-duration: 2s;
+  animation-delay:1.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+.tempClass-Equeue2 {
+  animation-name: Equeue;
+  animation-duration: 2s;
+  animation-delay:4.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+
+.tempClass-smaller {
+	width:650px !important;
+	height:300px !important;
+}
+
+
+/* Animation on General Upper Bound */
+.tempClass-redNode {
+	stroke:red;
+}
+.tempClass-noProof::before {
+	opacity:0;
+}
